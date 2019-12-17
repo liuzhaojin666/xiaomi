@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view/>
-    <Footer></Footer>
+    <Footer v-show="$route.meta.flag"></Footer>
   </div>
 </template>
 
@@ -13,6 +13,9 @@ export default {
   name: 'App',
   components:{
     Footer
+  },
+  mounted(){
+    this.$router.push('/home')
   }
 }
 </script>

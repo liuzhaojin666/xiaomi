@@ -47,14 +47,16 @@ export default {
   }
   .van-tabbar--fixed{
     width: 100%;
-    height: 1.5rem;
+    height: 0.8rem;
     display: flex;
     justify-content: space-around;
   }
   .van-tabbar--fixed a {
     width: 100%;
     height: 100%;
-    padding: .6rem 0;
     box-sizing: border-box;
+  }
+  .van-tabbar-item{
+    margin-top: 0.1rem;
   }
 </style>
