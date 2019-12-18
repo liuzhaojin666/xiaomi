@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="phone">
-      <div class="phone-one" v-for="(item,index) in icondata" @click="det(item.imgList,item.info,item.name,item.price,item.info_img)" :key="index">
+      <div class="phone-one" v-for="(item,index) in icondata" @click="det(item.imgList,item.info,item.name,item.price,item.info_img,item.edition,item)" :key="index">
         <img :src="item.img" alt="">
         <p class="p">{{item.name}}</p>
         <p class="p-one">{{item.content}}</p>
@@ -60,7 +60,7 @@
       })
     },
     methods:{
-      det(imgList,info,name,price,info_img) {
+      det(imgList,info,name,price,info_img,edition,item) {
         this.$router.push({
           path: "/det",
           query: {
@@ -68,7 +68,9 @@
             info:info,
             name:name,
             price:price,
-            info_img:info_img
+            info_img:info_img,
+            edition:edition,
+            item:item
           }
         })
       }

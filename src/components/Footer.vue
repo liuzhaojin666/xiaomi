@@ -47,7 +47,7 @@ export default {
   }
   .van-tabbar--fixed{
     width: 100%;
-    height: 0.8rem;
+    height:0.9rem;
     display: flex;
     justify-content: space-around;
   }
