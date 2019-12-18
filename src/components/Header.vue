@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     onClickLeft() {
-      Toast("返回");
+      this.$router.push("/home")
     },
     onClickRight() {
       Toast("按钮");
@@ -35,5 +35,17 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
+  }
+  .van-nav-bar__title{
+    font-size: 0.3rem;
+    margin-top: 0.2rem;
+  }
+  .van-nav-bar__left{
+    font-size: 0.28rem;
+    margin-top: 0.2rem;
+  }
+  .van-nav-bar__right{
+    font-size: 0.28rem;
+    margin-top: 0.2rem;
   }
 </style>
