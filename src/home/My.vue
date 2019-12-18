@@ -19,7 +19,20 @@
       </div>
       <div class="member">
         <van-cell title="会员中心" is-link icon="like-o" > </van-cell>
-        <van-cell title="收货地址" is-link icon="location-o" > </van-cell>
+        <van-cell title="收货地址" is-link icon="location-o" @click='addRe' > </van-cell>
+      </div>
+      <div class="member">
+        <van-cell title="我的优惠" is-link icon="coupon-o"> </van-cell>
+        <van-cell title="我的意见" is-link icon="comment-o"> </van-cell>
+      </div>
+      <div class="mem">
+        <van-cell title="浏览记录" is-link icon="clock-o"/>
+      </div>
+      <div class="mem">
+        <van-cell title="我的名片" is-link icon="qr"/>
+      </div>
+      <div class="mem">
+        <van-cell title="浏览记录" is-link icon="clock-o"/>
       </div>
     </div>
   </van-pull-refresh>
@@ -37,9 +50,12 @@ export default {
         this.$toast("刷新成功");
         this.isLoading = false;
       }, 500);
+    },
+    addRe(){
+      this.$router.push('/address')
     }
   }
-};
+}
 </script>
 
 
@@ -111,7 +127,14 @@ export default {
      font-size:0.45rem ;
 }
 .van-cell i:last-of-type{
-    
      font-size:0.45rem ;
+}
+.mem{
+  width:100%;
+  margin-top: 0.2rem;
+  
+}
+.van-grid-item__content--center i{
+  font-size: 0.45rem;
 }
 </style>

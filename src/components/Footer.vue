@@ -53,10 +53,14 @@ export default {
   }
   .van-tabbar-item{
     margin-top: .1rem;
+    font-size: 0.2rem;
   }
   .van-tabbar--fixed a {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+  }
+  .van-icon{
+    font-size: 0.4rem;
   }
 </style>

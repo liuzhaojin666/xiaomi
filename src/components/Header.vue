@@ -1,6 +1,7 @@
 <template>
   <div>
-    <van-nav-bar :title='num'
+    <van-nav-bar
+      :title="num"
       left-text="返回"
       right-text="按钮"
       left-arrow
@@ -12,8 +13,7 @@
 <script>
 export default {
   data() {
-    return {
-    };
+    return {};
   },
   methods: {
     onClickLeft() {
