@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <van-nav-bar
-      :title="num"
+
+  <div class="tou">
+    <van-nav-bar :title='num'
       left-text="返回"
       right-text="按钮"
       left-arrow
@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     onClickLeft() {
-      Toast("返回");
+      this.$router.push("/home")
     },
     onClickRight() {
       Toast("按钮");
@@ -26,3 +26,26 @@ export default {
   props: ["num"]
 };
 </script>
+<style type="text/css" scoped>
+  .tou{
+    width: 100%;
+    height: 0.8rem;
+    background: #fff;
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .van-nav-bar__title{
+    font-size: 0.3rem;
+    margin-top: 0.2rem;
+  }
+  .van-nav-bar__left{
+    font-size: 0.28rem;
+    margin-top: 0.2rem;
+  }
+  .van-nav-bar__right{
+    font-size: 0.28rem;
+    margin-top: 0.2rem;
+  }
+</style>

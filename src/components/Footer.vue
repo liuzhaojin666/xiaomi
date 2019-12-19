@@ -48,6 +48,7 @@ export default {
   .van-tabbar--fixed{
     width: 100%;
     height:0.9rem;
+
     display: flex;
     justify-content: space-around;
   }
@@ -65,5 +66,9 @@ export default {
   }
   .van-tabbar-item{
     margin-top: 0.1rem;
+    font-size: 0.30rem;
+  }
+  .van-tabbar-item__icon .van-icon van-icon-home-o{
+    font-size: 0.30rem;
   }
 </style>
