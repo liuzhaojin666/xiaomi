@@ -66,4 +66,7 @@ export default {
   .van-tabbar-item{
     margin-top: 0.1rem;
   }
+  .van-tabbar-item__icon .van-icon van-icon-home-o{
+    font-size: 0.30rem;
+  }
 </style>

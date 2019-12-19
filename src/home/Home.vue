@@ -54,6 +54,7 @@
     mounted() {
       this.$axios.get('https://shiyaming1994.github.io/mi/static/homeGoods.json?page=1').then(res => {
         this.icondata = res.data
+        console.log(res)
       })
       this.$axios.get('https://shiyaming1994.github.io/mi/static/rotationChart.json').then(res => {
         this.imgdata = res.data
@@ -147,12 +148,12 @@
   .icon-one p {
     font-size: 0.25rem;
     color: #000000;
-    margin-top: 0.15rem;
+    margin-top: 0.14rem;
   }
 
   .icon-one .van-icon {
     margin-left: 0.1rem;
-    font-size: 0.4rem;
+    font-size: 0.45rem;
   }
 
   .phone {

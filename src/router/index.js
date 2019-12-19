@@ -42,7 +42,7 @@ export default new Router({
     {
       path: '/my',
       component:My,
-      meta: {
+        meta: {
         flag: true
       }
     },

@@ -31,6 +31,12 @@ export default {
     addFu() {
       this.$router.push("/address");
     },
+     onSave() {
+    
+    },
+    onDelete() {
+     
+    },
     onChangeDetail(val) {
       if (val) {
         this.searchResult = [

@@ -190,15 +190,15 @@
 
   .address {
     width: 100%;
-    height: 2.72rem;
+    height: 1.5rem;
   }
 
   .address-one {
     width: 6rem;
-    height: 0.58rem;
+    height: 0.5rem;
     margin-left: 0.28rem;
     margin-top: 0.47rem;
-    border-bottom: 1px solid #CCCCCC;
+    border-bottom: 1px solid #ccc;
   }
 
   .address-one p {
@@ -275,7 +275,7 @@
   }
 
   .shop-one {
-    width: 5.72rem;
+    width: 5.9rem;
     height: 1.68rem;
     margin-left: 0.26rem;
     margin-top: 0.9rem;
