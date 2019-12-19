@@ -13,6 +13,9 @@ export default {
   name: 'App',
   components:{
     Footer
+  },
+  mounted(){
+    this.$router.push('/home')
   }
 }
 </script>
