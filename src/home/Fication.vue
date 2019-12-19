@@ -2,8 +2,16 @@
   <div>
     <hear num="分类"></hear>
     <div class="left">
-      <van-sidebar v-model="activeKey" v-for="(item,index) in arr" :key="index">
-        <van-sidebar-item :title="item" />
+      <van-sidebar v-model="activeKey">
+        <van-sidebar-item title="手机" />
+        <van-sidebar-item title="电视" />
+        <van-sidebar-item title="电脑" />
+        <van-sidebar-item title="家电" />
+        <van-sidebar-item title="路由" />
+        <van-sidebar-item title="出行" />
+        <van-sidebar-item title="智能" />
+        <van-sidebar-item title="灯具" />
+        <van-sidebar-item title="瞎整" />
       </van-sidebar>
     </div>
     <div class="right">
@@ -263,6 +271,38 @@
           </li>
         </ul>
       </div>
+      <div class="shouji">
+        <div class="right_top">
+          <img src="../assets/1.jpg" alt />
+        </div>
+        <h3>瞎整</h3>
+        <ul>
+          <li>
+            <h1>
+              <img src="../assets/0.jpg" alt />
+            </h1>
+            <p>小米</p>
+          </li>
+          <li>
+            <h1>
+              <img src="../assets/0.jpg" alt />
+            </h1>
+            <p>小米</p>
+          </li>
+          <li>
+            <h1>
+              <img src="../assets/0.jpg" alt />
+            </h1>
+            <p>小米</p>
+          </li>
+          <li>
+            <h1>
+              <img src="../assets/0.jpg" alt />
+            </h1>
+            <p>小米</p>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -280,39 +320,52 @@ export default {
     hear
   },
   mounted() {
-    $(".van-sidebar").click(function() {
-      var bodyHeight = $(window).scrollTop();//获取浏览器高度
-      var index = $(this).index();//下标
-      var width = $(".shouji")//盒子距离浏览器顶部的距离
-        .eq(index)
-        .offset().top;
+    var num = 0;
+    $(".van-sidebar-item").click(function() {
+      var bodyHeight = $(".right").scrollTop(); //获取浏览器高度
+      var index = $(this).index(); //下标
+      var width = index * $(".shouji").height(); //盒子距离浏览器顶部的距离
+      num = 1;
       console.log(width);
       if (bodyHeight > width) {
-        var timer =setInterval(function() {
+        var timer = setInterval(function() {
           bodyHeight -= 50;
           if (bodyHeight < width) {
             bodyHeight = width;
             clearInterval(timer);
+            num = 0;
           }
-          $(window).scrollTop(bodyHeight);
+          $(".right").scrollTop(bodyHeight);
         }, 50);
       }
-      if(bodyHeight < width){
-				timer = setInterval(function(){
-					bodyHeight += 50;
-					if(bodyHeight > width){
-						bodyHeight = width
-						clearInterval(timer);
-					}
-					$(window).scrollTop(bodyHeight)
-				},50);
-			}
+      if (bodyHeight < width) {
+        timer = setInterval(function() {
+          bodyHeight += 50;
+          if (bodyHeight > width) {
+            bodyHeight = width;
+            clearInterval(timer);
+            num = 0;
+          }
+          $(".right").scrollTop(bodyHeight);
+        }, 50);
+      }
     }),
-      this.$axios
-        .get("https://shiyaming1994.github.io/mi/static/homeGoods.json?page=1")
-        .then(res => {
-          console.log(res);
-        });
+      $(".right").scroll(function() {
+        var height = $(".right").scrollTop();
+        if (num == 0) {
+          $(".shouji").each(function() {
+            var index = $(this).index();
+            var width = index * $(".shouji").height();
+            if (height > width) {
+              $(".van-sidebar-item")
+                .eq(index)
+                .addClass("van-sidebar-item--select")
+                .siblings()
+                .removeClass("van-sidebar-item--select");
+            }
+          });
+        }
+      });
   },
   methods: {
     fun(index) {
@@ -334,10 +387,10 @@ export default {
 .right {
   width: 4.86rem;
   margin-right: 0.5rem;
-
+  height: 90vh;
+  overflow-y: scroll;
   float: right;
-  padding-top: 1rem;
-  }
+}
 .right_top {
   width: 100%;
   height: 1.56rem;
@@ -373,17 +426,5 @@ export default {
 .shouji ul li h1 img {
   width: 100%;
   height: 100%;
-}
-.van-sidebar-item--select {
-  border-color: #f2f2f2f2;
-  background-color: #f2f2f2f2;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  line-height: 0.6rem;
-}
-.van-sidebar {
-  border: 0.01rem solid #fff;
-  height: 1.35rem;
 }
 </style>
