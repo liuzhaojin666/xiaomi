@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="phone">
-      <div class="phone-one" v-for="(item,index) in icondata" @click="det(item.imgList,item.info,item.name,item.price,item.info_img,item.edition,item)" :key="index">
+      <div class="phone-one" v-for="(item,index) in icondata" @click="det(index,item.imgList,item.info,item.name,item.price,item.info_img,item.edition,item)" :key="index">
         <img :src="item.img" alt="">
         <p class="p">{{item.name}}</p>
         <p class="p-one">{{item.content}}</p>
@@ -61,10 +61,11 @@
       })
     },
     methods:{
-      det(imgList,info,name,price,info_img,edition,item) {
+      det(index,imgList,info,name,price,info_img,edition,item) {
         this.$router.push({
           path: "/det",
           query: {
+            index:index,
             imgList: imgList,
             info:info,
             name:name,
@@ -158,7 +159,7 @@
 
   .phone {
     width: 100%;
-    margin-bottom: 15.5rem;
+    margin-bottom: 15.6rem;
   }
 
   .phone-one {
@@ -192,4 +193,5 @@
     margin-left: 0.18rem;
     margin-top: 0.14rem;
   }
+  
 </style>

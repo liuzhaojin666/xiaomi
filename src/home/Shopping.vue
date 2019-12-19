@@ -8,15 +8,16 @@
 	    	</div>
 	    	<div class="shuju" v-if="a==1">
 	    		<ul>
-	    			<li v-for="(item,index) in 1" :key="index">
-	    				<img src="../assets/img/2.png">
+	    			<li v-for="(item,index) in arr2" :key="index">
+	    				<img :src="item.tt">
 	    				<div class="zhong">
-	    					<p>小米8屏幕指纹版</p>
-	    					<h3>￥7999</h3>
-	    					<van-stepper v-model="value" />
+	    					<p>{{ item.name }}</p>
+	    					<h3>￥{{ item.je*item.value }}</h3>
+	    					<van-stepper v-model="item.value"
+							/>
 	    				</div>
 	    				<div class="you">
-	    					<van-icon name="delete" size="40"/>
+	    					<van-icon name="delete" size="40" @click="dele(index)"/>
 	    				</div>
 	    			</li>
 	    		</ul>
@@ -46,10 +47,10 @@
     	</div>
     	<div class="qjs" v-if="a==1">
     		<div class="left">
-    			<h4>共4件 金额：</h4>
-    			<p>31996<span>元</span></p>
+    			<h4>共{{count}}件 金额：</h4>
+    			<p>{{ allprice }}<span>元</span></p>
     		</div>
-    		<div class="jxgw">继续购物</div>
+    		<div class="jxgw" @click="gou">继续购物</div>
     		<button @click="fn1()">去结算</button>
     	</div>
     	<div class="dd"></div>
@@ -63,14 +64,16 @@ export default {
     },
     data(){
     	return{
-    		arr:[],
-    		a:2,
+			arr2:JSON.parse(sessionStorage.getItem("qwe"))||[],
+			arr:[],
+			arr1:[],
+    		a:1,
     		value:1
     	}
     },
     mounted(){
     	this.$axios.get("https://shiyaming1994.github.io/mi/static/homeGoods.json?page=1").then(res=>{
-    		this.arr=res.data
+			this.arr=res.data
     	})
     },
     methods:{
@@ -84,8 +87,36 @@ export default {
     	},*/
     	fn1(){
     		alert("共需要123元")
-    	}
-    }
+		},
+		dele(i){
+			this.arr2.splice(i,1)
+			sessionStorage.setItem("qwe",JSON.stringify(this.arr2))
+		},
+		gou(){
+			this.$router.push('/home')
+		}
+	},
+	computed:{
+		allprice(){
+			if(this.arr2!=0){
+				return this.arr2.reduce((pre,next)=>{
+				return pre+=next.value*next.je
+				console.log(next)
+			},0)
+			}
+			
+		},
+		count(){
+			console.log(this.arr2)
+			if(this.arr2!=0){
+				return this.arr2.reduce((pre,next)=>{
+				sessionStorage.setItem("nn",pre+next.value)
+				return pre+next.value
+			},0)
+			}
+			
+		}
+	}
 }
 </script>
 <style scoped>
@@ -133,6 +164,10 @@ export default {
 		width: 100%;
 		height: 0.9rem;
 		background: #fff;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		z-index: 999;
 		display: flex;
 	}
 	.qjs .left{

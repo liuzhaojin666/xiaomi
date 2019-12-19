@@ -12,7 +12,7 @@
     <p class="detname-one">{{n1}}</p>
     <p class="detname-two">￥{{n3}}</p>
     <div class="address">
-      <div class="address-one" @click="addres">
+      <div class="address-one">
         <p>已选</p>
         <p>{{detailObj.name}}{{detailObj.edition[seen].Memory}}x1</p>
         <van-icon name="arrow" />
@@ -29,8 +29,9 @@
     <div class="car">
       <van-goods-action>
         <van-goods-action-icon icon="chat-o" text="首页" @click="onClickIcon" />
-        <van-goods-action-icon icon="cart-o" text="购物车" @click="onClickIcon" />
-        <van-goods-action-button type="warning" text="加入购物车" @click="onClickButton" />
+        <van-goods-action-icon icon="cart-o" text="购物车" @click="gwc" :info="a"/>
+        <!-- <div class="dw" v-if="a!=0">{{ a }}</div> -->
+        <van-goods-action-button type="warning" text="加入购物车" @click="addres" />
       </van-goods-action>
     </div>
     <div class="shop" v-show="show1">
@@ -74,6 +75,7 @@
   export default {
     data() {
       return {
+        id:this.$route.query.index,
         n: this.$route.query.imgList,
         n1: this.$route.query.info,
         n2: this.$route.query.name,
@@ -87,7 +89,10 @@
         editionObj:{},
         detailObj:{},
         seen: 0,
-        seen1: 0
+        seen1: 0,
+        arr1:[],
+        a:sessionStorage.getItem("nn")||"",
+        arr2:JSON.parse(sessionStorage.getItem("qwe"))|| []
       }
     },
     methods: {
@@ -105,8 +110,21 @@
         this.show1=true
       },
       addshop(){
+        this.$axios.get("https://shiyaming1994.github.io/mi/static/homeGoods.json?page=1").then(res => {
+        console.log(res.data)
+        sessionStorage.setItem('nn',this.a)
+        this.arr1.push(this.id)
+        sessionStorage.setItem('sj','this.arr1')
+        console.log(sessionStorage.getItem('nn'))
+        this.arr2.push({value:this.value,tt:this.detailObj.edition[this.seen].color[this.seen1].img,je:this.detailObj.edition[this.seen].edition_price,name:this.detailObj.name})
+        sessionStorage.setItem('qwe',JSON.stringify(this.arr2))
+        sessionStorage.setItem("nn",Number(sessionStorage.getItem("nn"))+this.value)
+        this.a=sessionStorage.getItem("nn")
+
+      })
         this.show =false
         this.show1=false
+
       },
       vanish(){
         this.show =false
@@ -121,11 +139,15 @@
       },
       selectColor(i) {
       	this.seen1 = i
+      },
+      gwc(){
+        this.$router.push("/shopping")
       }
     },
     mounted() {
     	this.getData();
-    	this.editionObj = this.detailObj.edition[this.seen]
+      this.editionObj = this.detailObj.edition[0]
+      console.log(this.id)
     },
   }
 </script>
@@ -275,7 +297,7 @@
   }
 
   .shop-one {
-    width: 5.9rem;
+    width: 7rem;
     height: 1.68rem;
     margin-left: 0.26rem;
     margin-top: 0.9rem;
@@ -381,18 +403,31 @@
   	line-height: 0.7rem;
   }
   button{
-    width: 6.86rem;
+    width: 5.86rem;
     height: 0.55rem;
     background: #FF6700;
     color: #fff;
     font-size: 0.25rem;
     border:none;
     border-radius: 0.5rem;
-    margin-left: 0.28rem;
+    margin-left: 0.5rem;
   }
   .shop .van-icon{
     position: absolute;;
     top: 0.5rem;
     right: 0.25rem;
+  }
+  .dw{
+    width: 0.3rem;
+    height: 0.3rem;
+    background: red;
+    font-size: 0.13rem;
+    border-radius: 50%;
+    line-height: 0.3rem;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 0.02rem;
+    left: 1.3rem;
   }
 </style>

@@ -11,16 +11,33 @@
         <van-sidebar-item title="出行" />
         <van-sidebar-item title="智能" />
         <van-sidebar-item title="灯具" />
-        <van-sidebar-item title="瞎整" />
       </van-sidebar>
     </div>
     <div class="right">
-      <div class="shouji">
+      <div class="shouji" v-for='(item,index) in arr' :key="index">
         <div class="right_top">
           <img src="../assets/1.jpg" alt />
         </div>
-        <h3>手机</h3>
+        <h3>{{item}}</h3>
         <ul>
+          <li>
+            <h1>
+              <img src="../assets/0.jpg" alt />
+            </h1>
+            <p>小米</p>
+          </li>
+          <li>
+            <h1>
+              <img src="../assets/0.jpg" alt />
+            </h1>
+            <p>小米</p>
+          </li>
+          <li>
+            <h1>
+              <img src="../assets/0.jpg" alt />
+            </h1>
+            <p>小米</p>
+          </li>
           <li>
             <h1>
               <img src="../assets/0.jpg" alt />
@@ -47,262 +64,7 @@
           </li>
         </ul>
       </div>
-      <div class="shouji">
-        <div class="right_top">
-          <img src="../assets/1.jpg" alt />
-        </div>
-        <h3>电视</h3>
-        <ul>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-        </ul>
-      </div>
-      <div class="shouji">
-        <div class="right_top">
-          <img src="../assets/1.jpg" alt />
-        </div>
-        <h3>电脑</h3>
-        <ul>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-        </ul>
-      </div>
-      <div class="shouji">
-        <div class="right_top">
-          <img src="../assets/1.jpg" alt />
-        </div>
-        <h3>家电</h3>
-        <ul>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-        </ul>
-      </div>
-      <div class="shouji">
-        <div class="right_top">
-          <img src="../assets/1.jpg" alt />
-        </div>
-        <h3>路由</h3>
-        <ul>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-        </ul>
-      </div>
-      <div class="shouji">
-        <div class="right_top">
-          <img src="../assets/1.jpg" alt />
-        </div>
-        <h3>出行</h3>
-        <ul>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-        </ul>
-      </div>
-      <div class="shouji">
-        <div class="right_top">
-          <img src="../assets/1.jpg" alt />
-        </div>
-        <h3>智能</h3>
-        <ul>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-        </ul>
-      </div>
-      <div class="shouji">
-        <div class="right_top">
-          <img src="../assets/1.jpg" alt />
-        </div>
-        <h3>灯具</h3>
-        <ul>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-        </ul>
-      </div>
-      <div class="shouji">
-        <div class="right_top">
-          <img src="../assets/1.jpg" alt />
-        </div>
-        <h3>瞎整</h3>
-        <ul>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-          <li>
-            <h1>
-              <img src="../assets/0.jpg" alt />
-            </h1>
-            <p>小米</p>
-          </li>
-        </ul>
-      </div>
+      <div style="width:100%;margin-top:3rem"></div>
     </div>
   </div>
 </template>
@@ -324,7 +86,7 @@ export default {
     $(".van-sidebar-item").click(function() {
       var bodyHeight = $(".right").scrollTop(); //获取浏览器高度
       var index = $(this).index(); //下标
-      var width = index * $(".shouji").height(); //盒子距离浏览器顶部的距离
+      var width = index * $(".shouji").height()+1; //盒子距离浏览器顶部的距离
       num = 1;
       console.log(width);
       if (bodyHeight > width) {
@@ -356,7 +118,7 @@ export default {
           $(".shouji").each(function() {
             var index = $(this).index();
             var width = index * $(".shouji").height();
-            if (height > width) {
+            if (height >= width) {
               $(".van-sidebar-item")
                 .eq(index)
                 .addClass("van-sidebar-item--select")
@@ -376,6 +138,9 @@ export default {
 };
 </script>
 <style scoped>
+.van-sidebar{
+  width: 75px;
+}
 .left {
   float: left;
   width: 1.56rem;
@@ -386,10 +151,15 @@ export default {
 
 .right {
   width: 4.86rem;
+  padding-top: 1.2rem;
   margin-right: 0.5rem;
   height: 90vh;
   overflow-y: scroll;
   float: right;
+  height: 100vh;
+}
+.van-sidebar{
+  height: 100vh;
 }
 .right_top {
   width: 100%;
@@ -400,15 +170,17 @@ export default {
   width: 100%;
   height: 100%;
 }
+
 .shouji h3 {
   width: 100%;
   height: 0.76rem;
   line-height: 0.76rem;
   text-align: center;
+   font-size: 0.3rem;
 }
 .shouji ul {
   width: 100%;
-  height: 3.56rem;
+  height: 4.56rem;
 }
 .shouji ul li {
   width: 1.4rem;
@@ -423,8 +195,14 @@ export default {
   margin: 0 auto;
   background: red;
 }
+.shouji ul li p {
+  font-size: 0.25rem;
+}
 .shouji ul li h1 img {
   width: 100%;
   height: 100%;
+}
+.van-sidebar-item{
+  padding:28px 12px 23px 17px;
 }
 </style>

@@ -12,7 +12,7 @@
       </div>
       <div class="nav">
         <van-grid :column-num="3" :border="false">
-          <van-grid-item icon="shopping-cart-o" text="待付款" />
+          <van-grid-item icon="shopping-cart-o" text="待付款" size='.3rem'/>
           <van-grid-item icon="coupon-o" text="优惠券" />
           <van-grid-item icon="star" text="收藏" />
         </van-grid>
@@ -34,6 +34,7 @@
       <div class="mem">
         <van-cell title="浏览记录" is-link icon="clock-o"/>
       </div>
+      <div style='width:100%;margin-top:.3rem'></div>
     </div>
   </van-pull-refresh>
 </template>
@@ -112,13 +113,13 @@ export default {
 }
 .nav {
   width: 100%;
-  height: 1.69rem;
+  /* height: 1.69rem; */
   margin-top: 0.15rem;
   background: #fff;
 }
 .member {
   width: 100%;
-  height: 1.78rem;
+  height: 1.6rem;
   background: #fff;
   margin-top: 0.18rem;
 }
@@ -137,4 +138,18 @@ export default {
 .van-grid-item__content--center i{
   font-size: 0.45rem;
 }
+.van-grid-item__text{
+  font-size: 0.25rem;
+}
+.member .van-cell{
+    width: 100%;
+    height: .8rem;
+  }
+  .van-cell__title{
+    font-size: .3rem;
+  }
+  .mem .van-cell{
+    height: .8rem;
+    margin-top:0.1rem;
+  }
 </style>
