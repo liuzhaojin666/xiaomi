@@ -11,7 +11,7 @@
       show-search-result
       :search-result="searchResult"
       :area-columns-placeholder="['请选择', '请选择', '请选择']"
-      @save="onSave"
+      @save="fnnn"
       @delete="onDelete"
       @change-detail="onChangeDetail"
     />
@@ -24,18 +24,29 @@ export default {
   data() {
     return {
       addData: addData,
-      searchResult: []
+      searchResult: [],
+      arr:JSON.parse(localStorage.getItem("dz"))||[],
+      // a:0
     };
+  },  
+   
+  mounted(){
+    console.log(this.addData)
   },
   methods: {
     addFu() {
       this.$router.push("/address");
     },
-     onSave() {
-    
-    },
     onDelete() {
      
+    },
+    fnnn(content){
+      console.log(this.arr)
+      this.arr.push({id:(this.arr.length+1)+'',name:content.name,tel:content.tel,address:`${content.province+content.city+content.county}`,addressDetail:content.addressDetail,postalCode:content.postalCode})
+      // this.a++
+      localStorage.setItem("dz",JSON.stringify(this.arr))
+      console.log(this.arr[0])
+      this.$router.push("/address")
     },
     onChangeDetail(val) {
       if (val) {

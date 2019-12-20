@@ -7,6 +7,7 @@ import My from '@/home/My'
 import Det from '@/components/Det.vue'
 import Address from '@/components/Address'
 import Newly from '@/components/Newly'
+import Revamp from '@/components/Revamp'
 Vue.use(Router)
 
 export default new Router({
@@ -64,6 +65,10 @@ export default new Router({
     {
       path:'/newly',
       component:Newly
+    },
+    {
+      path:'/revamp',
+      component:Revamp
     }
   ]
 })

@@ -64,7 +64,8 @@
           </li>
         </ul>
       </div>
-      <div style="width:100%;margin-top:3rem"></div>
+        <!-- <div class="box"></div> -->
+      <div style="width:100%;margin-top:5.2rem"></div>
     </div>
   </div>
 </template>
@@ -98,7 +99,7 @@ export default {
             num = 0;
           }
           $(".right").scrollTop(bodyHeight);
-        }, 50);
+        }, 5);
       }
       if (bodyHeight < width) {
         timer = setInterval(function() {
@@ -109,7 +110,7 @@ export default {
             num = 0;
           }
           $(".right").scrollTop(bodyHeight);
-        }, 50);
+        }, 5);
       }
     }),
       $(".right").scroll(function() {
@@ -138,6 +139,9 @@ export default {
 };
 </script>
 <style scoped>
+.box{
+  height: 2em;
+}
 .van-sidebar{
   width: 75px;
 }

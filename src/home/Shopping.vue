@@ -86,14 +86,14 @@ export default {
     		})
     	},*/
     	fn1(){
-    		alert("共需要123元")
+    		alert('共需要'+this.allprice+'元')
 		},
 		dele(i){
 			this.arr2.splice(i,1)
 			sessionStorage.setItem("qwe",JSON.stringify(this.arr2))
 		},
 		gou(){
-			this.$router.push('/home')
+			this.$router.push('/fication')
 		}
 	},
 	computed:{
@@ -104,7 +104,7 @@ export default {
 				console.log(next)
 			},0)
 			}
-			
+		
 		},
 		count(){
 			console.log(this.arr2)

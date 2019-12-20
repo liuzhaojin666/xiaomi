@@ -114,7 +114,7 @@
         console.log(res.data)
         sessionStorage.setItem('nn',this.a)
         this.arr1.push(this.id)
-        sessionStorage.setItem('sj','this.arr1')
+        sessionStorage.setItem('sj',this.arr1)
         console.log(sessionStorage.getItem('nn'))
         this.arr2.push({value:this.value,tt:this.detailObj.edition[this.seen].color[this.seen1].img,je:this.detailObj.edition[this.seen].edition_price,name:this.detailObj.name})
         sessionStorage.setItem('qwe',JSON.stringify(this.arr2))
